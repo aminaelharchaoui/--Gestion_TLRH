@@ -1,0 +1,156 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title fw-semibold mb-4">Mettre à jour le collaborateur</h5>
+      <p class="mb-0">Modifier les informations du collaborateur : {{collaborateur.nom}}</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+          <label for="nom">Nom</label>
+          <br>
+          <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="collaborateur.nom">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="prenom">Prenom</label>
+          <br>
+          <input type="text" class="form-control" id="prenom" name="prenom" [(ngModel)]="collaborateur.prenom">
+        </div>
+
+        <br>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" name="email" [(ngModel)]="collaborateur.email">
+        </div>
+
+        <br>
+        <div class="form-group">
+          <label for="abreviationCollaborateur">Abréviation Collaborateur</label>
+          <br>
+          <input type="text" class="form-control" id="abreviationCollaborateur" name="abreviationCollaborateur" [(ngModel)]="collaborateur.abreviationCollaborateur">
+        </div>
+
+        <br>
+        <fieldset>
+          <div class="form-group">
+            <label for="technologies">Technologies:</label>
+            <br>
+            <select class="form-control" id="technologies" [(ngModel)]="selectedTechnologies" name="technologies" multiple required (change)="onTechnologiesChange()">
+              <option *ngFor="let tech of technologies" [ngValue]="tech">{{ tech.nom }}</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <br>
+          <div class="form-group">
+            <label for="Roles">Roles:</label>
+            <br>
+            <select class="form-control" id="roles" [(ngModel)]="selectedRoles" name="roles" multiple required (change)="onRolesChange()">
+              <option *ngFor="let role of roles" [ngValue]="role">{{ role.role }}</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <br>
+        <div class="form-group">
+          <label for="sexe">Sexe</label>
+          <br>
+          <input type="text" class="form-control" id="sexe" name="sexe" [(ngModel)]="collaborateur.sexe">
+        </div>
+
+        <br>
+        <div class="form-group">
+          <label for="site">Site</label>
+          <br>
+          <input type="text" class="form-control" id="site" name="site" [(ngModel)]="collaborateur.site">
+        </div>
+
+        <br>
+        <div class="form-group">
+          <label for="statut">Statut</label>
+          <br>
+          <input type="text" class="form-control" id="statut" name="statut" [(ngModel)]="collaborateur.statut">
+        </div>
+
+        <br>
+        <div class="form-group">
+          <label for="dateParticipation">Date Participation</label>
+          <br>
+          <input type="date" class="form-control" id="dateParticipation" name="dateParticipation" [(ngModel)]="collaborateur.dateParticipation">
+        </div>
+
+        <br>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="seminaireIntegration" name="seminaireIntegration" [(ngModel)]="collaborateur.seminaireIntegration">
+          <label class="form-check-label" for="seminaireIntegration">Séminaire Integration</label>
+        </div>
+
+        <br>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="ancien_Collaborateur" name="ancien_Collaborateur" [(ngModel)]="collaborateur.ancien_Collaborateur">
+          <label class="form-check-label" for="ancien_Collaborateur">Ancien Collaborateur</label>
+        </div>
+
+        <br>
+        <div class="form-group">
+          <label for="posteActuel">Poste Actuel</label>
+          <br>
+          <input type="text" class="form-control" id="posteActuel" name="posteActuel" [(ngModel)]="collaborateur.posteActuel">
+        </div>
+
+        <br>
+        <div class="form-group">
+          <label for="dateEmbauche">Date Embauche</label>
+          <br>
+          <input type="date" class="form-control" id="dateEmbauche" name="dateEmbauche" [(ngModel)]="collaborateur.date_Embauche">
+        </div>
+
+        <br>
+        <div class="form-group">
+          <label for="dateDepart">Date Depart</label>
+          <br>
+          <input type="date" class="form-control" id="dateDepart" name="dateDepart" [(ngModel)]="collaborateur.date_Depart">
+        </div>
+
+        <br>
+        <div class="form-group">
+          <label for="bu">BU</label>
+          <br>
+          <input type="text" class="form-control" id="bu" name="bu" [(ngModel)]="collaborateur.bu">
+        </div>
+
+        <br>
+        <div class="form-group">
+          <label for="mois_BAP">Mois BAP</label>
+          <br>
+          <input type="text" class="form-control" id="mois_BAP" name="mois_BAP" [(ngModel)]="collaborateur.mois_BAP">
+        </div>
+
+        <br>
+        <fieldset>
+          <div class="form-group">
+            <label for="certificates">Certificates </label>
+            <select class="form-control" id="certificates" [(ngModel)]="selectedCertificates" name="certificates" multiple required (change)="onCertificatesChange()">
+              <option *ngFor="let cert of certificates" [ngValue]="cert">{{ cert.nom}}</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <br>
+
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+
+      </form>
+    </div>
+  </div>
+</div>

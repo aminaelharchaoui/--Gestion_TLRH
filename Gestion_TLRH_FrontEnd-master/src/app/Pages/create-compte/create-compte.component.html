@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title fw-semibold mb-4">La creation d'un compte</h5>
+            <p class="mb-0">creer un compte</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+    <div class="card custom-card">
+        <div class="card-body ">
+                <div class="form-group">
+                    <label for="nom">Email</label>
+                    <br>
+                    <input type="text" class="form-control" id="email" name="email" [(ngModel)]="emailInput">
+                </div>
+                <br>
+                <br>
+                <button  (click)="onSubmit()" class="btn btn-primary">Enregistrer</button>
+
+        </div>
+    </div>

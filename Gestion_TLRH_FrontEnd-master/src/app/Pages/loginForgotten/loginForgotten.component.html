@@ -1,0 +1,13 @@
+<div class="form-box">
+  <form class="form">
+      <span class="title">Password forgotten</span>
+      <div class="form-container">
+        <input type="email" class="input" placeholder="Your Professionnal email">
+      </div>
+      <button (click)="passwordForgotten()">Send</button>
+  </form>
+  
+  <div *ngIf="message" class="message" >
+    {{ message }}
+  </div>
+  </div>

@@ -1,0 +1,88 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-body" style=" max-height: 200px;">
+      <h5 class="card-title fw-semibold mb-4">La liste des Collaborateurs qui ne sont pas des Managers RH</h5>
+      <p class="mb-0">Visualiser la des Collaborateurs qui ne sont pas des Managers RH</p>
+    </div>
+  </div>
+</div>
+<!-- Insert your old code here -->
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+  <table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+    <tr>
+      <th>Matricule</th>
+      <th>Nom Complet</th>
+      <th>Email</th>
+      <th>Abreviation Collaborateur</th>
+      <th>Technologies</th>
+      <th>Roles</th>
+      <th>Sexe</th>
+      <th>Site</th>
+      <th>Statut</th>
+      <th>Date Participation</th>
+      <th>Seminaire Integration</th>
+      <th>Ancien Collaborateur</th>
+      <th>Poste Actuel</th>
+      <th>Poste APP</th>
+      <th>Salaire Actuel</th>
+      <th>Date Embauche</th>
+      <th>Date Depart</th>
+      <th>BU</th>
+      <th>Mois BAP</th>
+      <th>Certifications</th>
+      <th>Diplomes</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let nonManager of nonManagers">
+      <td>{{nonManager.matricule }}</td>
+      <td>{{nonManager.nom }} {{ nonManager.prenom }}</td>
+      <td>{{nonManager.email }}</td>
+      <td>{{nonManager.abreviationCollaborateur }}</td>
+      <td>
+        <ul>
+          <li *ngFor="let tech of nonManager.technologies">{{ tech.nom }}</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li *ngFor="let role of nonManager.roles">{{ role.role }}</li>
+        </ul>
+      </td>
+      <td>{{nonManager.sexe }}</td>
+      <td>{{nonManager.site }}</td>
+      <td>{{nonManager.statut }}</td>
+      <td>{{nonManager.dateParticipation | date }}</td>
+      <td>{{nonManager.seminaireIntegration ? 'Yes' : 'No' }}</td>
+      <td>{{nonManager.ancien_Collaborateur ? 'Yes' : 'No' }}</td>
+      <td>{{nonManager.posteActuel }}</td>
+      <td>{{nonManager.posteAPP }}</td>
+      <td>{{nonManager.salaireActuel }}</td>
+      <td>{{nonManager.date_Embauche | date }}</td>
+      <td>{{nonManager.date_Depart | date }}</td>
+      <td>{{nonManager.bu }}</td>
+      <td>{{nonManager.mois_BAP }}</td>
+      <td>
+        <ul>
+          <li *ngFor="let certif of nonManager.certificats">{{ certif.nom }}</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li *ngFor="let diplome of nonManager.diplomes">{{ diplome.type }}</li>
+        </ul>
+      </td>
+      <td>
+        <button (click)="createManager(nonManager.matricule)" class="btn btn-primary" style="margin-right: 10px">Add As Manager</button>
+      </td>
+       
+    </tr>
+    </tbody>
+  </table>
+    </div>
+  </div>
+</div>
+<!-- End of old code -->

@@ -1,0 +1,97 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-body" style=" max-height: 200px;">
+      <h5 class="card-title fw-semibold mb-4">La liste des Collaborateurs</h5>
+      <p class="mb-0">Visualiser les Collaborateurs existants</p>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+  <table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+    <tr>
+      <th>Matricule</th>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Email</th>
+      <th>Abreviation Collaborateur</th>
+      <th>Technologies</th>
+      <th>Roles</th>
+      <th>Sexe</th>
+      <th>Site</th>
+      <th>Statut</th>
+      <th>Date Participation</th>
+      <th>Seminaire Integration</th>
+      <th>Ancien Collaborateur</th>
+      <th>Poste Actuel</th>
+      <th>Poste APP</th>
+      <th>Salaire Actuel</th>
+      <th>Date Embauche</th>
+      <th>Date Depart</th>
+      <th>BU</th>
+      <th>Mois BAP</th>
+      <th>Certifications</th>
+      <th>Diplomes</th>
+      <th>Actions :</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let collaborateur of collaborateurs">
+      <td>{{ collaborateur.matricule }}</td>
+      <td>{{ collaborateur.nom }}</td>
+      <td>{{ collaborateur.prenom }}</td>
+      <td>{{ collaborateur.email }}</td>
+      <td>{{ collaborateur.abreviationCollaborateur }}</td>
+      <td>
+        <ul>
+          <li *ngFor="let tech of collaborateur.technologies">{{ tech.nom }}</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li *ngFor="let role of collaborateur.roles">{{ role.role }}</li>
+        </ul>
+      </td>
+      <td>{{ collaborateur.sexe }}</td>
+      <td>{{ collaborateur.site }}</td>
+      <td>{{ collaborateur.statut }}</td>
+      <td>{{ collaborateur.dateParticipation | date }}</td>
+      <td>{{ collaborateur.seminaireIntegration ? 'Yes' : 'No' }}</td>
+      <td>{{ collaborateur.ancien_Collaborateur ? 'Yes' : 'No' }}</td>
+      <td>{{ collaborateur.posteActuel }}</td>
+      <td>{{ collaborateur.posteAPP }}</td>
+      <td>{{ collaborateur.salaireActuel }}</td>
+      <td>{{ collaborateur.date_Embauche | date }}</td>
+      <td>{{ collaborateur.date_Depart |date }}</td>
+      <td>{{ collaborateur.bu }}</td>
+      <td>{{ collaborateur.mois_BAP }}</td>
+      <td>
+
+        <ul>
+          <li *ngFor="let certif of collaborateur.certificats">{{ certif.nom }}</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li *ngFor="let diplome of collaborateur.diplomes">{{ diplome.type }}</li>
+        </ul>
+      </td>
+      <td>
+        <button (click)="updateCollaborateur(collaborateur.matricule)" type="button" class="btn btn-success" >Update</button>
+    </td>
+    <td>
+        <button  (click)="technologie(collaborateur.matricule)" type="button" class="btn btn-primary">Techno</button>
+         <br><br>
+        <button  (click)="SalaryEvolution(collaborateur.matricule)" type="button" class="btn btn-primary">SalaryEvolution</button>
+          
+  </td>
+    </tr>
+    </tbody>
+  </table>
+    </div>
+  </div>
+</div>
+

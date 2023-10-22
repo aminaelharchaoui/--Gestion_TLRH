@@ -1,0 +1,200 @@
+<div class="container-fluid">
+    <div class="card">
+      <div class="card-body" style=" max-height: 200px;">
+        <h5 class="card-title fw-semibold mb-4">Ajout</h5>
+        <p class="mb-0">Ajouter un collaborateur </p>
+      </div>
+    </div>
+</div>
+
+<mat-stepper #stepper>
+    <mat-step [stepControl]="firstFormGroup" errorMessage="Personnel is required.">
+        <form [formGroup]="firstFormGroup" class="center-content">
+            <ng-template matStepLabel>Informations</ng-template>
+            <mat-form-field>
+                <mat-label>Matricule</mat-label>
+                <input matInput placeholder="EX: 00 00 0" formControlName="firstCtrl" type="text" maxlength="5" [(ngModel)]="collab.matricule" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Nom collaborateur </mat-label>
+                <input matInput placeholder="" formControlName="firstCtrl" [(ngModel)]="collab.nom" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Prénom collaborateur </mat-label>
+                <input matInput placeholder="" formControlName="firstCtrl" [(ngModel)]="collab.prenom"required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Email collaborateur </mat-label>
+                <input matInput placeholder="**@gmail.com" input="Email" formControlName="firstCtrl" [(ngModel)]="collab.email"required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Abréviation collaborateur </mat-label>
+                <input matInput placeholder="" type="text" maxlength="3" formControlName="firstCtrl" [(ngModel)]="collab.abreviationCollaborateur"required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Manager RH actuel </mat-label>
+                <mat-select matNativeControl placeholder="Sélectionnez un gestionnaire" formControlName="firstCtrl" [(ngModel)]="collab.managerRH" required>
+                    <mat-option *ngFor="let manager of managers " [value]="manager">
+
+                      {{ manager.nom }} {{ manager.prenom }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Sexe </mat-label>
+                <mat-select matNativeControl id="sexe" formControlName="firstCtrl" [(ngModel)]="collab.sexe" required>
+                    <mat-option value="F" selected>Femme</mat-option>
+                    <mat-option value="H" >Homme</mat-option>
+                </mat-select> 
+
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Site</mat-label>
+                <input matInput placeholder="**RABAT**" formControlName="firstCtrl"  [(ngModel)]="collab.site" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>business unit (BU)</mat-label>
+                <input matInput placeholder="EX: MRR1, MRR2 "  type="text" maxlength="4" formControlName="firstCtrl" [(ngModel)]="collab.bu" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Date Embauche </mat-label>
+                <input matInput type="date" formControlName="firstCtrl" [(ngModel)]="collab.date_Embauche" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Mois BAP</mat-label>
+                <input matInput placeholder="Last name, First name" formControlName="firstCtrl" [(ngModel)]="collab.mois_BAP" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Date Départ</mat-label>
+                <input matInput type="date"  [(ngModel)]="collab.date_Depart">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Ancien Collaborateur </mat-label>
+                <mat-select matNativeControl id="ancienCollab" formControlName="firstCtrl" [(ngModel)]="collab.ancien_Collaborateur" >
+                    <mat-option value="true" >True</mat-option>
+                    <mat-option value="false" selected>False</mat-option>
+                </mat-select> 
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Participé au séminaire d'intégration </mat-label>
+                <mat-select matNativeControl id="seminaire" formControlName="firstCtrl" [(ngModel)]="collab.seminaireIntegration" >
+                    <mat-option value="true" >True</mat-option>
+                    <mat-option value="false" selected>False</mat-option>
+                </mat-select> 
+
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Date participation </mat-label>
+                <input matInput placeholder="" type="date"  [(ngModel)]="collab.dateParticipation">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Poste APP </mat-label>
+                <input matInput placeholder="EX :CM2, RE0" maxlength="3" formControlName="firstCtrl" [(ngModel)]="collab.posteAPP" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Poste Actuel </mat-label>
+                <input matInput placeholder="EX : ICD1, DEV4, ET3, CPT2" maxlength="4" formControlName="firstCtrl" [(ngModel)]="collab.posteActuel" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Salaire Actuel </mat-label>
+                <input matInput placeholder="Last name, First name" formControlName="firstCtrl" [(ngModel)]="collab.salaireActuel" required>
+            </mat-form-field>
+            <mat-form-field>
+            <mat-select matNativeControl placeholder="Sélectionnez un role" multiple required formControlName="firstCtrl" [(ngModel)]="selectedRole" required>
+                <mat-option *ngFor="let role of roles" [value]="role">
+                  {{ role.role }} 
+                </mat-option>                      
+              </mat-select>
+            </mat-form-field>  
+
+            <div>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+
+    <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
+        <form [formGroup]="secondFormGroup" class="center-content">
+            <ng-template matStepLabel>Diplômes</ng-template>
+            <mat-form-field>
+                <mat-label>Niveau</mat-label>
+                <mat-select matNativeControl id="niveau" formControlName="secondCtrl">
+                    <mat-option value="BAC+1">BAC+1</mat-option>
+                    <mat-option value="BAC+2">BAC+2</mat-option>
+                    <mat-option value="BAC+3">BAC+3</mat-option>
+                    <mat-option value="BAC+4">BAC+4</mat-option>
+                    <mat-option value="BAC+5">BAC+5</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Ecole</mat-label>
+                <input matInput placeholder="" formControlName="secondCtrl" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Type ecole</mat-label>
+                <mat-select matNativeControl id="typeEcole" formControlName="secondCtrl">
+                    <mat-option value="nationale">nationale</mat-option>
+                    <mat-option value="internationale">internationale</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Type de diplôme</mat-label>
+                <mat-select matNativeControl id="typeDiplome" formControlName="secondCtrl">
+                    <mat-option value="étatique">étatique</mat-option>
+                    <mat-option value="Prive">Prive</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>promotion </mat-label>
+                <input matInput placeholder="EX : 2019" formControlName="secondCtrl">
+            </mat-form-field>
+                 
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+    
+    
+    
+    
+  
+
+
+
+
+
+  <!-- add-collab.component.html -->
+<mat-step [stepControl]="thirdFormGroup" errorMessage="Diplome is required.">
+    <form [formGroup]="thirdFormGroup" class="center-content" >
+      <ng-template matStepLabel>Compétences</ng-template>
+      <mat-form-field>
+        <mat-label>nombre de technologie</mat-label>
+        <input matInput placeholder="EX :java 5" formControlName="thirdCtrl" [(ngModel)]="num">
+      </mat-form-field>
+      <div *ngFor="let i of generateNumberArray(num)">
+  <div class="card">
+    <div class="card-body">
+      <mat-form-field>
+        <mat-label>nom</mat-label>
+        <input matInput placeholder="EX :java 5"  >
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>niveau</mat-label>
+        <input matInput placeholder="From 1 to 5" type="number" min="1" max="5"  >
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button class="btn btn-primary" mat-button (click)="submitForm()" >Add</button>
+        </div>
+        </form>
+    </mat-step>
+</mat-stepper>
+

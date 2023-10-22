@@ -1,0 +1,53 @@
+.container-fluid {
+  margin-top: 16px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  margin: 16px 0;
+}
+
+.card-title {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mat-mdc-form-field {
+  display: block;
+  width: 400px;
+  margin-top: 16px;
+  align-items: center;
+
+}
+
+
+.mat-mdc-form-field input[type="number"]:focus + mat-label,
+.mat-mdc-form-field input[type="text"]:focus + mat-label {
+  transform: translateY(-20px);
+  font-size: 10px;
+}
+
+.mat-mdc-form-field input[type="number"]:not(:placeholder-shown) + mat-label,
+.mat-mdc-form-field input[type="text"]:not(:placeholder-shown) + mat-label {
+  transform: translateY(-20px);
+  font-size: 10px;
+}
+
+.center-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.center-buttons button {
+  margin-right: 16px;
+}

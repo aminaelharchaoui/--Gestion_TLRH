@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  wordpress:
+    image: wordpress:latest
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_USER: adminpress  # Fixed a space here
+      WORDPRESS_DB_PASSWORD: adminpress
+      WORDPRESS_DB_NAME: press
+    volumes:
+      - ./wp-content:/var/www/html/wp-content
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: adminpress
+      MYSQL_USER: adminpress
+      MYSQL_PASSWORD: adminpress
+      MYSQL_DATABASE: press
+  phpmyadmin:
+    image: phpmyadmin
+    links:
+      - mysql
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: mysql  # Removed the extra space before mysql

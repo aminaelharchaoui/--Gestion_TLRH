@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title fw-semibold mb-4">Mettre à jour le collaborateur</h5>
+      <p class="mb-0">Modifier les informations du collaborateur</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="myForm"  (ngSubmit)="modifierCollaborateur()" class="form-container">
+
+        <!-- Exemple pour le champ Salaire Actuel -->
+        <mat-form-field class="mat-mdc-form-field">
+          <mat-label>Salaire Actuel</mat-label>
+          <input matInput type="number" id="salaireActuel" formControlName="salaireActuel" [(ngModel)]="collaborateur.salaireActuel" required>
+        </mat-form-field>
+
+        <!-- Exemple pour le champ PosteAPP -->
+        <mat-form-field class="mat-mdc-form-field">
+          <mat-label>PosteAPP</mat-label>
+          <input matInput type="text" id="poste" formControlName="poste" [(ngModel)]="collaborateur.posteAPP" required>
+        </mat-form-field>
+
+        <!-- Exemple pour le champ Manager RH -->
+        <mat-form-field class="mat-mdc-form-field">
+          <mat-label>Manager RH</mat-label>
+          <mat-select matNativeControl id="managerRH" formControlName="managerRH">
+            <mat-option *ngFor="let manager of managersRH" [value]="manager.matricule">{{ manager.nom }} {{ manager.prenom }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+        <div class="center-buttons">
+          <button mat-raised-button color="primary" type="submit">Enregistrer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

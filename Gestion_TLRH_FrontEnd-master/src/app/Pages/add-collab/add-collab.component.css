@@ -1,0 +1,27 @@
+.mat-mdc-form-field {
+    display: block;
+    width: 400px; 
+    margin-top: 16px;
+    align-items: center;
+
+}
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Optionally center-align text inside inputs */
+  }
+  
+  .center-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px; /* Add space between the content and buttons */
+  }
+  .center-content select {
+    /* Your custom styles for the <select> element */
+    width: 400px;
+    margin-top: 16px;
+    /* Additional styles as needed */
+  }
+  

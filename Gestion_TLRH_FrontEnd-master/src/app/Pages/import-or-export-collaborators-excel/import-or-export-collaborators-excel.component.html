@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-body" style=" max-height: 200px;">
+      <h5 class="card-title fw-semibold mb-4">Importer ou Exporter</h5>
+      <p class="mb-0">Importer ou Exporter les collaborateurs via un fichier Excel</p>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+
+      <div class="d-flex justify-content-between align-items-center">
+        <input type="file" (change)="onFileSelected($event)" accept=".xlsx" class="file-input">
+        <button mat-raised-button color="primary" (click)="importCollaborators()" [disabled]="!selectedFile" class="import-button">Import</button>
+      </div>
+  <br><br><br>
+      <div class="d-flex justify-content-between align-items-center">
+        <p class="export-text">Exporter les collaborateurs dans un fichier Excel</p>
+        <button mat-raised-button color="primary" (click)="exportCollaborators()" class="export-button">Export</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <div *ngIf="message" class="message">
+    {{ message }}
+  </div>
+

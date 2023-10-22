@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-body" style=" max-height: 200px;">
+      <h5 class="card-title fw-semibold mb-4">La liste des Collaborateurs</h5>
+      <p class="mb-0">Visualiser les Collaborateurs existants</p>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+
+    <tr>
+      <th>Technologie</th>
+      <th>Niveau</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let technologie of technologies">
+      <td>{{ technologie.name }}</td>
+      <td>{{ technologie.value }}</td>
+</tr>
+</tbody>
+</table>
+  <button (click)="listcollab()" type="button" class="btn btn-primary">Revenir</button>
+</div>
+</div>
+</div>

@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <H2 class="d-flex justify-content-center">Évolution du salaire du collaborateur</H2> <br>
+  <!--  Row 1 -->
+  <div class="row">
+    <div class="col-lg-12">
+      <!-- Chart -->
+      <div *ngIf="salaryEvolution">
+        <div class="radio-inputs">
+          <label class="radio">
+            <input type="radio" name="radio" [(ngModel)]="selectedChartType" value="bar" checked="">
+            <span class="name">Graphe en colonne</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="radio" [(ngModel)]="selectedChartType" value="pie" >
+            <span class="name">Graphe circulaire</span>
+          </label>
+        </div>            
+        <!-- <div class="chartType" >
+          <label>
+            <input  type="radio" name="chartType" [(ngModel)]="selectedChartType" value="bar">Graphe en colonne  
+          </label>
+          <label>
+            <input type="radio" name="chartType" [(ngModel)]="selectedChartType" value="pie">Graphe circulaire   
+          </label>
+        </div> -->
+        <!-- Affichage du graphique en fonction du choix -->
+        <div *ngIf="selectedChartType == 'bar'" class="bar-container">
+          <ngx-charts-bar-vertical
+            [results]="salaryEvolution"
+            [xAxis]="true"
+            [yAxis]="true"
+          ></ngx-charts-bar-vertical>
+        </div>
+        <div *ngIf="selectedChartType =='pie'" class="pie-container">
+           <app-salary-pie></app-salary-pie>
+        </div>
+      </div>      
+    </div>
+  </div>
+  
+</div>
+<button (click)="listcollab()" type="button" class="btn btn-primary">Revenir</button>

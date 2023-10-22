@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-body" style=" max-height: 200px;">
+      <h5 class="card-title fw-semibold mb-4">Affectation</h5>
+      <p class="mb-0"> Affectation du compte a un collaborateur </p>
+    </div>
+  </div>
+</div>
+<div class="card custom-card" >
+  <div class="card-body">
+    <form class="center-content" [formGroup]="firstFormGroup">
+      <div class="form-field">
+        <mat-form-field>
+          <mat-label>Collaborateur</mat-label>
+          <mat-select placeholder="Sélectionnez un Collaborateur" formControlName="firstCtrl" [(ngModel)]="selectedCollab" required>
+            <mat-option *ngFor="let collab of collabs" [value]="collab">
+              {{ collab.matricule }} - {{ collab.nom }} {{ collab.prenom }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      
+      <div class="form-field">
+        <mat-form-field>
+          <mat-label>Compte</mat-label>
+          <mat-select placeholder="Sélectionnez un Compte" formControlName="firstCtrl" [(ngModel)]="selectedCompte" required>
+            <mat-option *ngFor="let compte of comptes" [value]="compte">
+              {{ compte.id }} - {{ compte.email }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      
+      <div class="center-buttons">
+        <button mat-raised-button color="primary" (click)="affectCompteToCollab()">Affecter</button>
+      </div>
+    </form>
+  </div>
+</div>
